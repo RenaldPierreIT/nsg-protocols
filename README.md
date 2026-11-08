@@ -34,11 +34,9 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <p align="center">
 <img height="50%" width="50%" alt="image" src="https://github.com/user-attachments/assets/bb6562c0-2458-41d2-a1b8-05acde863c12" />
 <img height="50%" width="45%" alt="image" src="https://github.com/user-attachments/assets/5b3f4228-74f2-4f8d-ad9a-360e65b71808" />
-</p>
 
 <p align="center">
 <img src="https://i.imgur.com/IIUShxp.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
 
 <p>
   We can inspect each individual packet and see the actual data that is being sent in each ping. the picture below demonstrates just that. 
