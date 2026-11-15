@@ -20,13 +20,13 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Step 1:
-- Step 2:
-- Step 3:
-- Step 4:
-- Step 5:
-- Step 6:
-- Step 7:
+- Step 1: Install Wireshark 
+- Step 2: Inspect ICMP Traffic 
+- Step 3: Configure Network Security Groups 
+- Step 4: Inspect SSH Traffic 
+- Step 5: Inspect DHCP Traffic
+- Step 6: Inspect DNS Traffic
+- Step 7: Inspect RDP Traffic
 
 <h2>Actions and Observations</h2>
 
