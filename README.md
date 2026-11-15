@@ -40,11 +40,11 @@ Before beginning this tutorial, it is assumed that you have the following Azure 
   - One running Windows 10.
   - One running Ubuntu Linux.
 
-Before inspecting network traffic, we must first install Wireshark on the Windows VM. Wireshark is a network protocol analyzer (commonly referred to as a packet analyzer or packet sniffer) that allows us to capture, inspect, and analyze network traffic.
+Before inspecting network traffic, we must first install Wireshark on the Windows 10 VM. Wireshark is a network protocol analyzer (commonly referred to as a packet analyzer or packet sniffer) that allows us to capture, inspect, and analyze network traffic.
 
 To download Wireshark, visit the official website: https://www.wireshark.org/
 
-Once Wireshark is installed, use Remote Desktop Protocol (RDP) to connect to the Windows VM. After successfully logging in, launch Wireshark.
+Once Wireshark is installed, use Remote Desktop Protocol (RDP) to connect to the Windows 10 VM. After successfully logging in, launch Wireshark.
 With our Azure environment configured and Wireshark running, we're ready to begin inspecting network traffic between our Azure Virtual Machines, starting with ICMP traffic. 
 </p>
 
