@@ -31,7 +31,21 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2>Actions and Observations</h2>
 
 <p>
-  Welcome to my tutorial on Network Security Groups and Inspecting Network Protocols. First you will need to create two VMs on Azure. One machine will be a Linux machine and the other will be a Windows 10 machine. Both will have two cpus and they must be on the same VNET. Once that is done go on the Windows machine and download Wireshark. I will attatch a link to the wireshark download. https://www.wireshark.org/download.html Once installed open Wireshark and filter for ICMP Traffic only. ICMP is a network layer protocol that relays messages concerning network connection issues. Ping uses this protocol, ping tests connectivity between hosts. When we filter wirehsark to only capture ICMP packets and ping the private IP address of our linux machine we can visually see the packets on wireshark. 
+Before beginning this tutorial, it is assumed that you have the following Azure resources already configured:
+
+- A free Azure account (tenant) and an active Azure subscription.
+- A Resource Group (RG) created within Azure.
+- A Virtual Network (VNet) with at least one subnet configured within the Resource Group.
+- Two Virtual Machines (VMs) deployed and connected to the VNet:
+  - One running Windows 10.
+  - One running Ubuntu Linux.
+
+Before inspecting network traffic, we must first install Wireshark on the Windows VM. Wireshark is a network protocol analyzer (commonly referred to as a packet analyzer or packet sniffer) that allows us to capture, inspect, and analyze network traffic.
+
+To download Wireshark, visit the official website: https://www.wireshark.org/
+
+Once Wireshark is installed, use Remote Desktop Protocol (RDP) to connect to the Windows VM. After successfully logging in, launch Wireshark.
+With our Azure environment configured and Wireshark running, we're ready to begin inspecting network traffic between our Azure Virtual Machines, starting with ICMP traffic. 
 </p>
 
 <p align="center">
