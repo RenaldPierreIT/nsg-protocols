@@ -103,6 +103,9 @@ Shortly after pressing Enter, the command-line prompt will change to reflect tha
 
 <p align="center">
 <img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/572f992e-6113-427f-b73b-15fb39bc0280" />
+<p align="center">
+<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/cac302ee-a468-4c0c-85b7-aae87a0d36bd" />
+
 
 <p>
   Now we will use wireshark to filter for DHCP. DHCP is the Dynamic Host Configuration Protocol this works on ports 67/68. It is used to assign IP addresses to machines. We will request a new ip address with the command "ipconfig /renew". Once we enter the command wireshark will capture DHCP traffic.
