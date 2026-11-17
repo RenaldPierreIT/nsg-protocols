@@ -120,9 +120,9 @@ First, open Wireshark on the Windows 10 VM and enter ‘dhcp’ into the display
 
 Next, open PowerShell on the Windows 10 VM and execute the following command to release its current DHCP-assigned IPv4 configuration: ipconfig /release
 
-Once the current IP configuration has been released, execute the following command to request a new IP configuration from the DHCP server: ipconfig /renew. This prompts the Windows VM to initiate DHCP communication to obtain an IP address and other network configuration information.
+Once the current IP configuration has been released, execute the following command to request a new IP configuration from the DHCP server: ipconfig /renew. This prompts the Windows 10 VM to initiate DHCP communication to obtain an IP address and other network configuration information.
 
-As shown in the Wireshark capture below, we successfully captured all four stages of the DHCP DORA process: Discover, Offer, Request, and Acknowledgment (ACK). These packets illustrate how the Windows VM communicates with the DHCP server to obtain its IP configuration.
+As shown in the Wireshark capture below, we successfully captured all four stages of the DHCP DORA process: Discover, Offer, Request, and Acknowledgment (ACK). These packets illustrate how the Windows 10 VM communicates with the DHCP server to obtain its IP configuration.
 </p>
 
 <p align="center">
