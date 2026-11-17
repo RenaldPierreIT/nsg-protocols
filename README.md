@@ -69,8 +69,7 @@ We can observe the same activity in Wireshark within the purple-highlighted sect
 </p>
 
 <p align="center">
-<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/a58bc7a2-44e4-4816-9bce-8a932736f15e" />
-
+<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/e165dc75-99e9-42bb-9f11-a4c8570a92b7" />
 
 <p>
   In this part of the tutorial, we will observe what happens when inbound ICMP traffic is blocked using an Azure Network Security Group (NSG) associated with the Linux VM.
