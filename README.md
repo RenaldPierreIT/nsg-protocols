@@ -69,7 +69,7 @@ We can observe the same activity in Wireshark within the purple-highlighted sect
 </p>
 
 <p align="center">
-<img width="80%" height="80%" alt="image" src="https://github.com/user-attachments/assets/9bea84f9-a794-4e66-a580-2fd8066e3cb3" />
+<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/9bea84f9-a794-4e66-a580-2fd8066e3cb3" />
 
 <p>
   In this part of the tutorial, we will observe what happens when inbound ICMP traffic is blocked using an Azure Network Security Group (NSG) associated with the Linux VM.
@@ -83,9 +83,10 @@ Once ICMP Echo Replies begin appearing in Wireshark, go to the Azure portal and 
 To restore ICMP connectivity: Go back to the NSG in the Azure portal and delete the inbound security rule you created by selecting the trash icon. 
 </p>
 
+<p align="center">
 <img src="https://i.imgur.com/5vXO75R.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://i.imgur.com/Asl80tN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p align="center">
+<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/5a647093-04b4-4200-8bde-6431d3f1694d" />
 
 <p>
   Next we will use our Windows machine to SSH to the Linux machine. SSH has no GUI it just gives the user access to the machines CLI. We will set the wireshark filter to capture SSH packets only. When we ssh into the Linux machine with the command prompt "ssh labuser@10.0.0.5" we can see that wireshark starts to immediately capture SSH packets.
