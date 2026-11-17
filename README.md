@@ -1,6 +1,5 @@
 <p align="center">
 <img src="https://i.imgur.com/Ua7udoS.png" alt="Traffic Examination"/>
-</p>
 
 <h1>Network Security Groups (NSGs) and Inspecting Traffic Between Azure Virtual Machines</h1>
 In this tutorial, we observe various network traffic to and from Azure Virtual Machines with Wireshark as well as experiment with Network Security Groups. <br />
@@ -105,6 +104,7 @@ Shortly after pressing Enter, the command-line prompt will change to reflect tha
 <p>
   To terminate the SSH session, execute the following command: exit. As shown in the Wireshark capture below, a TCP RST, ACK (Reset/Acknowledgment) packet was captured during the SSH connection termination process. This packet indicates that the TCP connection was reset rather than closed through the normal TCP termination process.
 </p>
+
 <p align="center">
 <img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/cac302ee-a468-4c0c-85b7-aae87a0d36bd" />
 
@@ -126,7 +126,6 @@ As shown in the Wireshark capture below, we successfully captured all four stage
 
 <p align="center">
 <img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/03624a0d-502c-4890-b381-a12ac7a5b886" />
-
 
 <p>
   Next, we will inspect DNS traffic to observe how domain names are resolved into IP addresses.
