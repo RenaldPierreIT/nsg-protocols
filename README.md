@@ -86,7 +86,8 @@ To restore ICMP connectivity: Go back to the NSG in the Azure portal and delete 
 <p align="center">
 <img src="https://i.imgur.com/5vXO75R.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p align="center">
-<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/5a647093-04b4-4200-8bde-6431d3f1694d" />
+<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/958e11c0-96ca-4ce9-bae0-1803c2873969" />
+
 
 <p>
   Next, we will inspect SSH traffic in Wireshark to observe the network communication associated with establishing and terminating a Secure Shell (SSH) connection.
