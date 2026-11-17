@@ -114,7 +114,7 @@ Shortly after pressing Enter, the command-line prompt will change to reflect tha
 
 Dynamic Host Configuration Protocol (DHCP) is a network management protocol that automatically assigns IP addresses to devices when they connect to a network.
 
-For this demonstration, we will use the Windows VM to release its current DHCP-assigned IP configuration and request a new one.
+For this demonstration, we will use the Windows 10 VM to release its current DHCP-assigned IP configuration and request a new one.
 
 First, open Wireshark on the Windows 10 VM and enter ‘dhcp’ into the display filter bar to isolate DHCP traffic. Alternatively, DHCP traffic can be identified by filtering for its associated UDP port numbers (67 & 68).
 
