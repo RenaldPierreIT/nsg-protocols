@@ -142,8 +142,8 @@ After pressing Enter, the Windows 10 VM sends a DNS query to its configured DNS 
 As shown in the screenshot below, the DNS query returned the IP address 130.211.198.204 for disney.com. This is one of the IP addresses returned during our lookup that a client can use to establish a connection to the associated website.
 </p>
 <br />
-
-<img src="https://i.imgur.com/VMcwmsO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p align="center">
+<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/34f61dfc-664a-4a80-b3f7-2081cd5e45bf" />
 
 <p>
   Lastly we will filter for RDP traffic. When we enter tcp.port==3389 traffic is spammed non stop because we are using Remote Desktop Protocol to connect to our Virtual Machine. 
