@@ -126,8 +126,9 @@ As shown in the Wireshark capture below, we successfully captured all four stage
 
 <p align="center">
 <img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/03624a0d-502c-4890-b381-a12ac7a5b886" />
+
 <p>
-  Next, we will inspect DNS traffic to observe how domain names are resolved into IP addresses.
+Next, we will inspect DNS traffic to observe how domain names are resolved into IP addresses.
 
 The Domain Name System (DNS) is responsible for translating human-readable domain names (such as disney.com) into IP addresses that computers use to locate and communicate with other devices and services across a network.
 
