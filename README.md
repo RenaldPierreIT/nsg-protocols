@@ -88,7 +88,6 @@ To restore ICMP connectivity: Go back to the NSG in the Azure portal and delete 
 <p align="center">
 <img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/958e11c0-96ca-4ce9-bae0-1803c2873969" />
 
-
 <p>
   Next, we will inspect SSH traffic in Wireshark to observe the network communication associated with establishing and terminating a Secure Shell (SSH) connection.
 
@@ -103,16 +102,31 @@ Shortly after pressing Enter, the command-line prompt will change to reflect tha
 
 <p align="center">
 <img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/572f992e-6113-427f-b73b-15fb39bc0280" />
+<p>
+  To terminate the SSH session, execute the following command: exit. As shown in the Wireshark capture below, a TCP RST, ACK (Reset/Acknowledgment) packet was captured during the SSH connection termination process. This packet indicates that the TCP connection was reset rather than closed through the normal TCP termination process.
+</p>
 <p align="center">
 <img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/cac302ee-a468-4c0c-85b7-aae87a0d36bd" />
 
-
 <p>
-  Now we will use wireshark to filter for DHCP. DHCP is the Dynamic Host Configuration Protocol this works on ports 67/68. It is used to assign IP addresses to machines. We will request a new ip address with the command "ipconfig /renew". Once we enter the command wireshark will capture DHCP traffic.
-</p>
-<br />
+  Next, let's move on to DHCP traffic and examine how IP addresses are assigned to devices on a network.
 
-<img src="https://i.imgur.com/vU8fpQf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Dynamic Host Configuration Protocol (DHCP) is a network management protocol that automatically assigns IP addresses to devices when they connect to a network.
+
+For this demonstration, we will use the Windows VM to release its current DHCP-assigned IP configuration and request a new one.
+
+First, open Wireshark on the Windows 10 VM and enter ‘dhcp’ into the display filter bar to isolate DHCP traffic. Alternatively, DHCP traffic can be identified by filtering for its associated UDP port numbers (67 & 68).
+
+Next, open PowerShell on the Windows 10 VM and execute the following command to release its current DHCP-assigned IPv4 configuration: ipconfig /release
+
+Once the current IP configuration has been released, execute the following command to request a new IP configuration from the DHCP server: ipconfig /renew. This prompts the Windows VM to initiate DHCP communication to obtain an IP address and other network configuration information.
+
+As shown in the Wireshark capture below, we successfully captured all four stages of the DHCP DORA process: Discover, Offer, Request, and Acknowledgment (ACK). These packets illustrate how the Windows VM communicates with the DHCP server to obtain its IP configuration.
+</p>
+
+<p align="center">
+<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/03624a0d-502c-4890-b381-a12ac7a5b886" />
+
 
 <p>
   Time to filter DNS traffic. We will set wireshark to filter DNS traffic. We will initiate DNS traffic by typing in the command "nslookup www.google.com" this command essentially asks our DNS server what is google's IP address.
