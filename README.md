@@ -129,7 +129,17 @@ As shown in the Wireshark capture below, we successfully captured all four stage
 
 
 <p>
-  Time to filter DNS traffic. We will set wireshark to filter DNS traffic. We will initiate DNS traffic by typing in the command "nslookup www.google.com" this command essentially asks our DNS server what is google's IP address.
+  Next, we will inspect DNS traffic to observe how domain names are resolved into IP addresses.
+
+The Domain Name System (DNS) is responsible for translating human-readable domain names (such as disney.com) into IP addresses that computers use to locate and communicate with other devices and services across a network.
+
+With Wireshark open on the Windows 10 VM, enter ‘dns’ into the display filter bar to isolate DNS traffic.
+
+Next, open PowerShell on the Windows 10 VM and execute the following command: nslookup disney.com
+
+After pressing Enter, the Windows 10 VM sends a DNS query to its configured DNS server asking, “What is the IP address for Disney.com?” The DNS server then looks up the domain name and sends the corresponding IP address back to our machine, so it knows where to go to access Disney’s website.
+
+As shown in the screenshot below, the DNS query returned the IP address 130.211.198.204 for disney.com. This is one of the IP addresses returned during our lookup that a client can use to establish a connection to the associated website.
 </p>
 <br />
 
