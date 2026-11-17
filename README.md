@@ -89,11 +89,19 @@ To restore ICMP connectivity: Go back to the NSG in the Azure portal and delete 
 <img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/5a647093-04b4-4200-8bde-6431d3f1694d" />
 
 <p>
-  Next we will use our Windows machine to SSH to the Linux machine. SSH has no GUI it just gives the user access to the machines CLI. We will set the wireshark filter to capture SSH packets only. When we ssh into the Linux machine with the command prompt "ssh labuser@10.0.0.5" we can see that wireshark starts to immediately capture SSH packets.
-</p>
-<br />
+  Next, we will inspect SSH traffic in Wireshark to observe the network communication associated with establishing and terminating a Secure Shell (SSH) connection.
 
-<img src="https://i.imgur.com/zteR41r.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+SSH is a network protocol that provides a secure, encrypted connection between two computers, allowing users to remotely access and interact with another machine through a command-line interface (CLI).
+
+To begin, open Wireshark on the Windows 10 VM and enter ‘ssh’ into the display filter bar to isolate SSH traffic.
+
+Next, open PowerShell or Command Prompt on the Windows VM and execute the following command: ssh labuser@10.0.0.5. This command initiates an SSH connection from the Windows 10 VM to the Ubuntu Linux VM (10.0.0.5) using the username labuser.
+
+Shortly after pressing Enter, the command-line prompt will change to reflect that you are now interacting with the Ubuntu Linux VM remotely.
+</p>
+
+<p align="center">
+<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/572f992e-6113-427f-b73b-15fb39bc0280" />
 
 <p>
   Now we will use wireshark to filter for DHCP. DHCP is the Dynamic Host Configuration Protocol this works on ports 67/68. It is used to assign IP addresses to machines. We will request a new ip address with the command "ipconfig /renew". Once we enter the command wireshark will capture DHCP traffic.
