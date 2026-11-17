@@ -166,4 +166,3 @@ Even when we're not actively interacting with the remote computer, RDP may conti
 
 Think of RDP like a live video stream: even when you're not actively interacting with the computer, it may continue transmitting updates to keep the remote desktop synchronized with what you see on your local screen.
 </p>
-<br />
