@@ -141,13 +141,29 @@ After pressing Enter, the Windows 10 VM sends a DNS query to its configured DNS 
 
 As shown in the screenshot below, the DNS query returned the IP address 130.211.198.204 for disney.com. This is one of the IP addresses returned during our lookup that a client can use to establish a connection to the associated website.
 </p>
-<br />
+
 <p align="center">
 <img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/34f61dfc-664a-4a80-b3f7-2081cd5e45bf" />
 
 <p>
-  Lastly we will filter for RDP traffic. When we enter tcp.port==3389 traffic is spammed non stop because we are using Remote Desktop Protocol to connect to our Virtual Machine. 
+  Finally, let's examine Remote Desktop Protocol (RDP) traffic and observe the network communication associated with an active remote desktop connection.
+
+  RDP is a Microsoft protocol that allows users to remotely connect to another computer and access and interact with its desktop environment through a graphical user interface (GUI).
+
+This is exactly what we've been doing since we first connected to the Windows 10 VM at the beginning of this tutorial!
+
+Next, open Wireshark and apply the following display filter to isolate traffic using the default RDP port: tcp.port == 3389
+
+TCP port 3389 is the default port used by RDP. We will use this filter rather than ‘rdp’ because tcp.port == 3389 filters traffic based on the TCP port number, regardless of whether Wireshark identifies the individual packets as RDP protocol traffic.
+</p>
+
+<p align="center">
+<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/88756a73-70e5-4b8b-a2c3-4298dc728a1c" />
+<p>
+  One thing worth noting is the continuous stream of network packets displayed in Wireshark after applying the filter. This is because an active RDP session involves ongoing communication between the remote computer (Windows 10 VM) and the client machine (PC). This communication includes screen updates, user input, and other session-related data.
+
+Even when we're not actively interacting with the remote computer, RDP may continue exchanging network traffic to maintain the session and communicate updates. Although the continuous stream of packets may initially look like unnecessary or repetitive traffic, it's simply Wireshark capturing the ongoing network communication associated with our remote desktop session.
+
+Think of RDP like a live video stream: even when you're not actively interacting with the computer, it may continue transmitting updates to keep the remote desktop synchronized with what you see on your local screen.
 </p>
 <br />
-
-<img src="https://i.imgur.com/VxXGv6X.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
