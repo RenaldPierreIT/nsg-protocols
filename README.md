@@ -31,7 +31,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2>Actions and Observations</h2>
 
 <p>
-Before beginning this tutorial, it is assumed that you have the following Azure resources already configured:
+  Before beginning this tutorial, it is assumed that you have the following Azure resources already configured:
 
 - A free Azure account (tenant) and an active Azure subscription.
 - A Resource Group (RG) created within Azure.
@@ -52,20 +52,36 @@ With our Azure environment configured and Wireshark running, we're ready to begi
 <img height="50%" width="50%" alt="image" src="https://github.com/user-attachments/assets/bb6562c0-2458-41d2-a1b8-05acde863c12" />
 <img height="50%" width="45%" alt="image" src="https://github.com/user-attachments/assets/5b3f4228-74f2-4f8d-ad9a-360e65b71808" />
 
+<p>
+  Before diving into the packet capture, it is important to understand what ICMP (Internet Control Message Protocol) is and how it relates to Ping.
+
+ICMP is a network-layer protocol used to help devices communicate information about network connectivity and troubleshoot network problems. Ping is a network troubleshooting tool that uses ICMP Echo Requests and Echo Replies to test connectivity between two devices.
+
+With that understanding, let’s generate and inspect some ICMP traffic.
+
+First, open Wireshark on the Windows 10 VM and enter ‘icmp’ into the display filter bar to isolate ICMP traffic. Next, retrieve the Linux VM's private IP address (10.0.0.5) from the Azure portal.
+
+Once you have the IP address, open PowerShell on the Windows 10 VM and run the following command: ping 10.0.0.5
+
+Referencing the screenshot below: The ping was successful, as the Linux VM responded to all four ICMP Echo Requests sent by the Windows 10 VM, confirming network connectivity between the two virtual machines.
+
+We can observe the same activity in Wireshark within the purple-highlighted section of the screenshot. Wireshark captured a total of eight packets: four ICMP Echo Requests originating from the Windows VM (10.0.0.4) and four corresponding ICMP Echo Replies originating from the Linux VM (10.0.0.5).
+</p>
+
 <p align="center">
-<img src="https://i.imgur.com/IIUShxp.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img width="80%" height="80%" alt="image" src="https://github.com/user-attachments/assets/9bea84f9-a794-4e66-a580-2fd8066e3cb3" />
 
 <p>
-  We can inspect each individual packet and see the actual data that is being sent in each ping. the picture below demonstrates just that. 
-</p>
-<br />
+  In this part of the tutorial, we will observe what happens when inbound ICMP traffic is blocked using an Azure Network Security Group (NSG) associated with the Linux VM.
 
-<img src="https://i.imgur.com/GLxSIG3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Once again, we will use Wireshark to filter for ICMP traffic. However, this time, we will execute the following command in PowerShell on the Windows 10 VM: ping 10.0.0.5 -t
 
-<p>
-  In the next portion of the lab we will perpetually ping the Linux machine with the command ping -t. This will continually ping the machine until we decide to stop it, while the Windows machine is pinging the Linux machine we will go to the Linux machine and block inbound ICMP traffic on it's firewall. Once we do that we will stop recieving echo replys from the Linux machine. We will block ICMP by creating a new Network Security Group on the Linux machine that will be set to block ICMP. We can allow the traffic by allowing ICMP on the Linux Network Security Groups page on Azure. 
+The ‘-t’ parameter instructs Windows to continuously send ICMP Echo Requests to the Linux VM (10.0.0.5) until the ping process is manually stopped.
+
+Once ICMP Echo Replies begin appearing in Wireshark, go to the Azure portal and create an inbound security rule. Configure the inbound security rule to deny ICMP traffic destined for the Linux VM. After the rule is applied, observe Wireshark and the PowerShell window to see how the previously successful ping requests are affected.
+
+To restore ICMP connectivity: Go back to the NSG in the Azure portal and delete the inbound security rule you created by selecting the trash icon. 
 </p>
-<br />
 
 <img src="https://i.imgur.com/5vXO75R.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
